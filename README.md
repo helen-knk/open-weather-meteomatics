@@ -4,6 +4,8 @@ Este projeto está em desenvolvimento e novas funcionalidades serão adicionadas
 
 ## 🐍 Requisitos
 - Python 3.14.0
+- Docker 28.5.2
+- Docker Compose v2.40.3
 - Virtualenv (opcional, mas recomendado)
 
 ## 📦 Instalação e Ambiente
@@ -31,7 +33,7 @@ Após ativar a venv:
 pip install -r requirements.txt
 ```
 
-🔄 Atualizar o requirements.txt
+### 🔄 Atualizar o requirements.txt
 
 Sempre que você instalar novos pacotes:
 ```
@@ -44,6 +46,16 @@ pip freeze > requirements.txt
 ```
 
 Isso garante que o projeto esteja sempre com as dependências corretas para reprodução.
+
+### Executar o projeto via Docker
+Subir o serviço:
+```
+docker compose up --build
+```
+Parar o serviço:
+```
+docker compose down -v
+```
 
 ## 📁 Estrutura do Projeto (por enquanto)
 

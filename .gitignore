@@ -5,3 +5,6 @@
 # Python bytecode
 __pycache__/
 *.pyc
+
+# Docker
+docker/.env.docker

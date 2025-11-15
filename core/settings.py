@@ -55,13 +55,15 @@ DATABASES = {
         'NAME': config('DB_NAME'),
         'USER': config('DB_USER'),
         'PASSWORD': config('DB_PASSWORD'),
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT'),
         'OPTIONS': {
             'charset': 'utf8mb4',
         },
     }
 }
+
+CELERY_BROKER_URL = 'redis://redis:6379/0'
 
 AUTH_PASSWORD_VALIDATORS = [
     {
