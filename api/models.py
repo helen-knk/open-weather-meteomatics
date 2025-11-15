@@ -1,3 +1,11 @@
 from django.db import models
 
-# Create your models here.
+
+class Clima(models.Model):
+    data_criacao = models.DateTimeField(auto_now_add=True)
+    status_code = models.IntegerField()
+    ok = models.TextField()
+    response = models.JSONField()
+
+    def __str__(self):
+        return f'Clima - {self.data_criacao}'
