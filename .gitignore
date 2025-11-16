@@ -7,5 +7,6 @@ __pycache__/
 *.pyc
 
 # Docker
-docker/.env.docker
+docker/dev/.env.docker
 /celerybeat-schedule
+.env.prod
