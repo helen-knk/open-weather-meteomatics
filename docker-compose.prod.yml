@@ -6,9 +6,41 @@ services:
     env_file:
       - .env.prod
     depends_on:
-      - db
+      - redis
     expose:
       - "8000"
+    command: sh /app/docker/prod/entrypoint.sh
+    volumes:
+        - static_data:/app/staticfiles
+
+  celery_worker:
+    build:
+      context: .
+      dockerfile: 'docker/prod/Dockerfile'
+    command: celery -A core worker -l info
+    volumes:
+      - .:/app
+    depends_on:
+      - redis
+      - web
+    env_file:
+      - '.env.prod'
+
+  celery_beat:
+    build:
+      context: .
+      dockerfile: 'docker/prod/Dockerfile'
+    command: celery -A core beat -l info
+    volumes:
+      - .:/app
+    depends_on:
+      - redis
+      - web
+    env_file:
+      - '.env.prod'
+
+  redis:
+    image: redis:7
 
   nginx:
     image: nginx:latest
@@ -26,8 +58,6 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
       MYSQL_DATABASE: ${DB_NAME}
-      MYSQL_USER: ${DB_USER}
-      MYSQL_PASSWORD: ${DB_PASSWORD}
     volumes:
       - mysql_data:/var/lib/mysql
 

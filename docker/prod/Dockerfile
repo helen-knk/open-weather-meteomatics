@@ -24,8 +24,6 @@ RUN pip install --no-cache /wheels/*
 
 COPY . .
 
-RUN python manage.py collectstatic --noinput
-
 EXPOSE 8000
 
 ENTRYPOINT ["sh", "/app/docker/prod/entrypoint.sh"]
