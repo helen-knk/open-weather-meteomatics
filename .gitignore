@@ -8,3 +8,4 @@ __pycache__/
 
 # Docker
 docker/.env.docker
+/celerybeat-schedule
