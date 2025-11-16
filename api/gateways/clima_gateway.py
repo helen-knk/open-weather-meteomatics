@@ -7,3 +7,6 @@ def salvar_clima(dados):
         url=dados.get('url'),
         response=dados.get('response')
     )
+
+def obter_clima():
+    return Clima.objects.order_by('-data_criacao').values()

@@ -1,7 +1,7 @@
 from django.urls import path
 
-from .views import listar_dados_climaticos_cidade
+from .views import listar_registros_clima
 
 urlpatterns = [
-    path('clima/', listar_dados_climaticos_cidade),
+    path('clima/', listar_registros_clima),
 ]
