@@ -17,7 +17,11 @@ def salvar_clima(dados):
     processar_dados_clima(log)
 
 def obter_clima():
-    return Clima.objects.order_by('-data_criacao').values()
+    return (
+        ClimaDados.objects
+        .order_by('data_medicao')
+        .values('data_medicao', 'temperatura', 'precipitacao', 'vento')
+    )
 
 def salvar_log(dados):
     log = Clima.objects.create(

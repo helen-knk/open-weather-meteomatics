@@ -7,4 +7,4 @@ def consultar_clima():
     salvar_clima(api_resposta)
 
 def listar_clima():
-    return list(obter_clima())
+    return obter_clima()
