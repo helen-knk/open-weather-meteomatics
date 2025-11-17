@@ -2,6 +2,7 @@ from datetime import datetime
 from http import HTTPStatus
 
 from api.models import Clima, ClimaDados
+from core.utils.decorators import transaction_atomic
 
 PARAMETRO_MAP = {
     't_2m:C': 'temperatura',
@@ -10,6 +11,7 @@ PARAMETRO_MAP = {
 }
 
 
+@transaction_atomic
 def salvar_clima(dados):
     log = salvar_log(dados)
     processar_dados_clima(log)
