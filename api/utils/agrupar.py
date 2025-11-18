@@ -10,7 +10,7 @@ def agrupar_por_dia(queryset):
             resultado[data] = []
 
         resultado[data].append({
-            'data_medicao': item['data_medicao'].date(),
+            'data_medicao': item['data_medicao'].replace(microsecond=0),
             'temperatura': item['temperatura'],
             'precipitacao': item['precipitacao'],
             'vento': item['vento'],
