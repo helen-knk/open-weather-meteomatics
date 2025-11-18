@@ -9,4 +9,7 @@ __pycache__/
 # Docker
 docker/dev/.env.docker
 /celerybeat-schedule
-.env.prod
+docker/prod/.env.prod
+
+# Arquivos estáticos
+/staticfiles/
