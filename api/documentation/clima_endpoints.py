@@ -8,7 +8,7 @@ lista_clima_swwager = swagger_auto_schema(
             name='data',
             in_=openapi.IN_QUERY,
             description=(
-                "Filtrar por data no formato YYYYMMDD. "
+                "Filtrar por data no formato YYYY-MM-DD. "
                 "Aceita apenas hoje ou datas de até 7 dias atrás."
             ),
             type=openapi.TYPE_STRING,
